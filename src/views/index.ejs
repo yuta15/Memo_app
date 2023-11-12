@@ -4,9 +4,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/_header.css">
+    <link rel="stylesheet" href="/css/_footer.css">
+
 </head>
 <body>
-    <p><%= items;  %></p>
-    
+    <header>
+        <%- include("./common/_header") %>
+    </header>
+
+
+
+    <div class="conteiner">
+
+        <div class="add-content hide" id="add-items">
+            <form action="/" method="post">
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Title</label>
+                    <input type="text" name="title" class="form-control" id="formGroupExampleInput" placeholder="Title">
+                  </div>
+                  <div class="mb-3">
+                    <label for="formGroupExampleInput2" class="form-label" aria-placeholder="Content">Content</label>
+                    <textarea name="content" id="" cols="10" rows="5"></textarea>
+                  </div>
+                  <div class="mb-3 check-button">
+                    <button type="button" class="check btn" id="Back">Back</button>
+                    <button type="submit" class="check btn" id="item-submit" name="addItem">Add</button>
+                  </div>
+            </form>
+        </div>
+
+        <div class="accordion me-auto ms-auto" id="accordionExample">
+            <div class="item-title">
+                <h2>Registration items</h2>
+                <div class="add-button">
+                    <button class="add" id="add">+ Add</button>                
+                </div>                
+            </div>
+
+            <% items.forEach((item) => {%>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <!-- <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> -->
+                      <button class="accordion-button" type="button">
+                        <%= item.title %>
+                      </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse " data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                        <%= item.content %>
+                      </div>
+                    </div>
+                  </div>     
+            <%});;  %>
+        </div>
+    </div>
+    <!-- Accodion-test -->
+
+    <footer>
+        <%- include("./common/_footer")  %>
+    </footer>
+
+    <script src="src/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
+
+
 </body>
 </html>
