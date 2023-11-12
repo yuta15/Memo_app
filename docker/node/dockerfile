@@ -1,0 +1,12 @@
+FROM "node:latest"
+
+WORKDIR /usr/src/
+
+COPY ./package ./
+
+RUN npm install -g npm
+RUN npm install
+RUN npm install -g nodemon
+
+
+EXPOSE 3000
