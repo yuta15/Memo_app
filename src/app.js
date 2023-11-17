@@ -50,6 +50,21 @@ app.get('/test', (req, res) => {
     res.render('test.ejs');
 });
 
+app.route('/delete/:id')
+    .get((req, res) => {
+        connection.query(
+            "delete from memo where id=?",
+            [req.params.id],
+            (error, results) => {
+                if(error){
+                    console.log(error);
+                }else{
+                    res.redirect('/');
+                }
+            }
+        );
+    });
+
 
 
 const port = 3000;

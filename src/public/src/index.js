@@ -1,5 +1,7 @@
 "use strict"
 
+
+
 // classList remove function
 function change_classList(changeElementID, changeClass, addOrRemove){
     const changeElement = document.getElementById(changeElementID);
@@ -20,27 +22,25 @@ function change_classList(changeElementID, changeClass, addOrRemove){
 
 // add content display functinon
 function Add_items_display(){
-    const add_button = document.getElementById("add");
-    add_button.addEventListener('click', () => {
-        change_classList("add-items", "hide", "remove");
-        const back = document.getElementById("Back");
-        back.addEventListener('click', () => {
-        change_classList("add-items", "hide", "add");
-        });
+    const add_button = document.getElementById("add-button");
+    add_button.addEventListener("click",() => {
+        const add_item = document.getElementById("add-items");
+        add_item.classList.toggle("hide");
     });
 };
 
+    
+function open_close(){
+    const accordion_class = document.getElementsByClassName("accordion-header");
+    for (let id = 0; id < accordion_class.length; id++){
+        accordion_class[id].addEventListener("click", ()=>{
+            const accordion_content = document.getElementById(`${id}-content`);
+            accordion_content.classList.toggle("open");
+        });
+    };
+}
 
 
 
-// accordinon
-
-
-// const back = document.getElementById('back');
-// back.addEventListener()
-
-
-
-
-
+open_close();
 Add_items_display();

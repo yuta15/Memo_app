@@ -1,9 +1,13 @@
-.foot{
-    height: 40px;
-    position: sticky;
-    bottom: 0;
+.absolute-container {
+    position: relative;
+    padding-bottom: 114px;
+    min-height: 95vh;
+}
+.foot {
+    width: 100%;
+    position: absolute;
     left: 0;
-    right: 0;
+    bottom: 0;
 }
 
 .foot-text{
